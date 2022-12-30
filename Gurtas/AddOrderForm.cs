@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gurtas.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace Gurtas
 
         private void AddOrderForm_Load(object sender, EventArgs e)
         {
+            //btnGiveOrder.Enabled = false;
+
             if (this.Tag == null)
             {
                 Clear();
@@ -27,7 +30,7 @@ namespace Gurtas
             {
                 FillForm();
             }
-            
+
         }
 
         private void FillForm()
@@ -211,7 +214,11 @@ namespace Gurtas
             }
             var userId = 2;
 
-            Helper.Helper.AddNewOrder(orderId, orderNumber, supplier, contactName, bidNumber, orderDetail, quantity, material, price, currency, description, deliveryTime, discount, packagingDetail, shippingDetail, paymentMethod, paymentTerm, isActive,  userId);
+            Helper.Helper.AddNewOrder(orderId, orderNumber, supplier, contactName, bidNumber, orderDetail, quantity, material, price, currency, description, deliveryTime, discount, packagingDetail, shippingDetail, paymentMethod, paymentTerm, isActive, userId);
+
+            string supplierMail = txtSupplierMail.Text;
+            Helper.Helper.Email($"Aşağıdaki ürünler siparişimizdir.\n\n {material} {quantity} Adet \n\n ***Lütfen teyit ediniz.***", supplierMail);
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -233,6 +240,12 @@ namespace Gurtas
                 throw;
             }
 
+        }
+
+        private void btnGiveOrder_Click(object sender, EventArgs e)
+        {
+            string supplierMail = txtSupplierMail.Text;
+            Helper.Helper.Email($"Aşağıdaki ürünler siparişimizdir.\n 1 - DENEME ÜRÜNÜ 2 ADET \n 2 - DENEME ÜRÜNÜ 5 ADET", supplierMail);
         }
     }
 }

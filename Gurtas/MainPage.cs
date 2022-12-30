@@ -17,17 +17,29 @@ namespace Gurtas
     {
         public MainPage()
         {
-            Login login = new Login();
-            login.ShowDialog();
+            #region BUTONLAR
+            // GEREKLİ OLDUĞUNDA KULLANILACAK.
+            //btnUsers.Visible = false;
+            //btnMeasureTools.Visible = false;
+            //btnSuppliers.Visible = false;
+            //btnCustomers.Visible = false; 
+            #endregion
 
             InitializeComponent();
         }
 
         private void MainPage_Load(object sender, EventArgs e)
         {
+            var userId = Convert.ToInt32(this.Tag);
+            if (userId != 2)
+            {
+                siparişİşlemleriToolStripMenuItem.Enabled = false;
+            }
+            
             timer1.Enabled = true;
             grdMainPage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grdMainPage.AutoGenerateColumns = false;
+            kaliteKontrolToolStripMenuItem.Enabled = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -109,22 +121,22 @@ namespace Gurtas
 
         private void btnProjects_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Yapım Aşamasında...", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //Helper.Helper.GenerateProjectsTable(grdMainPage);
+            //MessageBox.Show("Yapım Aşamasında...", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Helper.Helper.GenerateProjectsTable(grdMainPage);
 
-            //try
-            //{
-            //    using (var context = new GurtasContext())
-            //    {
-            //        var projectsList = context.Projects.ToList();
-            //        grdMainPage.DataSource = projectsList;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //    throw;
-            //}
+            try
+            {
+                using (var context = new GurtasContext())
+                {
+                    var projectsList = context.Projects.ToList();
+                    grdMainPage.DataSource = projectsList;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
@@ -151,7 +163,7 @@ namespace Gurtas
                 using (GurtasContext context = new GurtasContext())
                 {
                     Helper.Helper.GenerateOrdersTable(grdMainPage);
-                    var activeOrders = context.Orders.Where(e => e.IsActive == true).ToList();
+                    var activeOrders = context.Orders.Where(e => e.IsActive == false).ToList();
                     grdMainPage.DataSource = activeOrders;
                 }
             }
@@ -169,7 +181,7 @@ namespace Gurtas
                 using (GurtasContext context = new GurtasContext())
                 {
                     Helper.Helper.GenerateOrdersTable(grdMainPage);
-                    var activeOrders = context.Orders.Where(e => e.IsActive == false).ToList();
+                    var activeOrders = context.Orders.Where(e => e.IsActive == true).ToList();
                     grdMainPage.DataSource = activeOrders;
                 }
             }
@@ -186,6 +198,31 @@ namespace Gurtas
             updateOrderForm.ShowDialog();
             var ordersList = Helper.Helper.GetOrders();
             grdMainPage.DataSource = ordersList;
+        }
+
+        private void gününSiparişleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Helper.Helper.GenerateOrdersTable(grdMainPage);
+
+            try
+            {
+                using (GurtasContext context = new GurtasContext())
+                {
+                    var activeOrders = context.Orders.Where(e=>e.RecordDate >= DateTime.Today && e.RecordDate <= DateTime.Today.AddDays(1)).ToList();
+                    grdMainPage.DataSource = activeOrders;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+        private void girdiKontrolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var inputControl = new InputControlForm();
+            inputControl.ShowDialog();
         }
     }
 }

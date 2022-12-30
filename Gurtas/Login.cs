@@ -1,4 +1,5 @@
-﻿using Gurtas.DAL.Entities;
+﻿using Gurtas.DAL.Context;
+using Gurtas.DAL.Entities;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace Gurtas
             {
                 if (Helper.Helper.PasswordControl(userId, password))
                 {
+                    this.Hide();
                     if (user.Gender == "Erkek")
                     {
                         MessageBox.Show($"Hoş Geldiniz {user.Name} Bey", "", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -50,6 +52,10 @@ namespace Gurtas
                     }
                     this.Close();
                 }
+                else
+                {
+                    this.Tag = 0;
+                }
             }
             else
             {
@@ -63,6 +69,13 @@ namespace Gurtas
             if (userId == 0)
             {
                 Application.Exit();
+            }
+            else if (userId != 0)
+            {
+                MainPage mainPage = new MainPage();
+                mainPage.Tag = userId;
+                mainPage.ShowDialog();
+                this.Hide();
             }
 
         }

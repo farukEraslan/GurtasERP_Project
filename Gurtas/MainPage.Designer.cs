@@ -44,6 +44,10 @@
             this.siparişGüncelleSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktifSiparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.geçmişSiparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gününSiparişleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kaliteKontrolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.girdiKontrolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teklifVeFiyatlandırmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.grdMainPage = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -157,9 +161,11 @@
             // 
             // menuStrip2
             // 
-            this.menuStrip2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.menuStrip2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.siparişİşlemleriToolStripMenuItem});
+            this.siparişİşlemleriToolStripMenuItem,
+            this.kaliteKontrolToolStripMenuItem,
+            this.teklifVeFiyatlandırmaToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
@@ -173,7 +179,8 @@
             this.yeniSiparişToolStripMenuItem,
             this.siparişGüncelleSilToolStripMenuItem,
             this.aktifSiparişlerToolStripMenuItem,
-            this.geçmişSiparişlerToolStripMenuItem});
+            this.geçmişSiparişlerToolStripMenuItem,
+            this.gününSiparişleriToolStripMenuItem});
             this.siparişİşlemleriToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.siparişİşlemleriToolStripMenuItem.Name = "siparişİşlemleriToolStripMenuItem";
             this.siparişİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(143, 25);
@@ -207,6 +214,35 @@
             this.geçmişSiparişlerToolStripMenuItem.Text = "Geçmiş Siparişler";
             this.geçmişSiparişlerToolStripMenuItem.Click += new System.EventHandler(this.geçmişSiparişlerToolStripMenuItem_Click);
             // 
+            // gününSiparişleriToolStripMenuItem
+            // 
+            this.gününSiparişleriToolStripMenuItem.Name = "gününSiparişleriToolStripMenuItem";
+            this.gününSiparişleriToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.gününSiparişleriToolStripMenuItem.Text = "Günün Siparişleri";
+            this.gününSiparişleriToolStripMenuItem.Click += new System.EventHandler(this.gününSiparişleriToolStripMenuItem_Click);
+            // 
+            // kaliteKontrolToolStripMenuItem
+            // 
+            this.kaliteKontrolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.girdiKontrolToolStripMenuItem});
+            this.kaliteKontrolToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.kaliteKontrolToolStripMenuItem.Name = "kaliteKontrolToolStripMenuItem";
+            this.kaliteKontrolToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
+            this.kaliteKontrolToolStripMenuItem.Text = "Kalite Kontrol";
+            // 
+            // girdiKontrolToolStripMenuItem
+            // 
+            this.girdiKontrolToolStripMenuItem.Name = "girdiKontrolToolStripMenuItem";
+            this.girdiKontrolToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.girdiKontrolToolStripMenuItem.Text = "Girdi Kontrol";
+            this.girdiKontrolToolStripMenuItem.Click += new System.EventHandler(this.girdiKontrolToolStripMenuItem_Click);
+            // 
+            // teklifVeFiyatlandırmaToolStripMenuItem
+            // 
+            this.teklifVeFiyatlandırmaToolStripMenuItem.Name = "teklifVeFiyatlandırmaToolStripMenuItem";
+            this.teklifVeFiyatlandırmaToolStripMenuItem.Size = new System.Drawing.Size(196, 25);
+            this.teklifVeFiyatlandırmaToolStripMenuItem.Text = "Teklif ve Fiyatlandırma";
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -231,7 +267,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(898, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "GurtasERP 2022 Her Hakkı Saklıdır.";
+            this.label2.Text = "GurtasERP | 2022 Her Hakkı Saklıdır.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // panel2
@@ -282,8 +318,6 @@
 
         private Panel panel1;
         private MenuStrip menuStrip2;
-        private Button btnMeasureTools;
-        private Button btnUsers;
         private Button btnCustomers;
         private Button btnSuppliers;
         private Label label1;
@@ -300,5 +334,11 @@
         private Label label2;
         private Panel panel2;
         private Panel panel3;
+        private ToolStripMenuItem gününSiparişleriToolStripMenuItem;
+        private ToolStripMenuItem kaliteKontrolToolStripMenuItem;
+        private ToolStripMenuItem girdiKontrolToolStripMenuItem;
+        private Button btnUsers;
+        private Button btnMeasureTools;
+        private ToolStripMenuItem teklifVeFiyatlandırmaToolStripMenuItem;
     }
 }

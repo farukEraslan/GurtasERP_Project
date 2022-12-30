@@ -77,6 +77,9 @@
             this.txtContactName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnGiveOrder = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtSupplierMail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nmuQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuDiscount)).BeginInit();
@@ -240,7 +243,7 @@
             this.txtBidNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBidNumber.Location = new System.Drawing.Point(575, 10);
             this.txtBidNumber.Name = "txtBidNumber";
-            this.txtBidNumber.Size = new System.Drawing.Size(262, 29);
+            this.txtBidNumber.Size = new System.Drawing.Size(390, 29);
             this.txtBidNumber.TabIndex = 5;
             // 
             // txtMaterial
@@ -422,7 +425,7 @@
             this.txtDeliveryTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDeliveryTime.Location = new System.Drawing.Point(575, 217);
             this.txtDeliveryTime.Name = "txtDeliveryTime";
-            this.txtDeliveryTime.Size = new System.Drawing.Size(262, 29);
+            this.txtDeliveryTime.Size = new System.Drawing.Size(390, 29);
             this.txtDeliveryTime.TabIndex = 9;
             // 
             // txtPackaging
@@ -430,7 +433,7 @@
             this.txtPackaging.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPackaging.Location = new System.Drawing.Point(575, 252);
             this.txtPackaging.Name = "txtPackaging";
-            this.txtPackaging.Size = new System.Drawing.Size(262, 29);
+            this.txtPackaging.Size = new System.Drawing.Size(390, 29);
             this.txtPackaging.TabIndex = 10;
             // 
             // txtShippingDetail
@@ -438,7 +441,7 @@
             this.txtShippingDetail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtShippingDetail.Location = new System.Drawing.Point(575, 287);
             this.txtShippingDetail.Name = "txtShippingDetail";
-            this.txtShippingDetail.Size = new System.Drawing.Size(262, 29);
+            this.txtShippingDetail.Size = new System.Drawing.Size(390, 29);
             this.txtShippingDetail.TabIndex = 11;
             // 
             // panel3
@@ -477,7 +480,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(815, 390);
+            this.btnSave.Location = new System.Drawing.Point(815, 433);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 49);
             this.btnSave.TabIndex = 13;
@@ -488,7 +491,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnClear.Location = new System.Drawing.Point(503, 390);
+            this.btnClear.Location = new System.Drawing.Point(503, 433);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(150, 49);
             this.btnClear.TabIndex = 14;
@@ -581,7 +584,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.Location = new System.Drawing.Point(659, 390);
+            this.btnDelete.Location = new System.Drawing.Point(659, 433);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(150, 49);
             this.btnDelete.TabIndex = 14;
@@ -591,6 +594,9 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.txtSupplierMail);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Controls.Add(this.btnGiveOrder);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.btnDelete);
             this.panel5.Controls.Add(this.label2);
@@ -630,14 +636,43 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1032, 506);
+            this.panel5.Size = new System.Drawing.Size(1032, 560);
             this.panel5.TabIndex = 15;
+            // 
+            // btnGiveOrder
+            // 
+            this.btnGiveOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGiveOrder.Location = new System.Drawing.Point(815, 488);
+            this.btnGiveOrder.Name = "btnGiveOrder";
+            this.btnGiveOrder.Size = new System.Drawing.Size(150, 49);
+            this.btnGiveOrder.TabIndex = 15;
+            this.btnGiveOrder.Text = "Sipariş Ver";
+            this.btnGiveOrder.UseVisualStyleBackColor = true;
+            this.btnGiveOrder.Click += new System.EventHandler(this.btnGiveOrder_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(458, 367);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(111, 21);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Tedarikçi Mail :";
+            // 
+            // txtSupplierMail
+            // 
+            this.txtSupplierMail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSupplierMail.Location = new System.Drawing.Point(575, 364);
+            this.txtSupplierMail.Name = "txtSupplierMail";
+            this.txtSupplierMail.Size = new System.Drawing.Size(390, 29);
+            this.txtSupplierMail.TabIndex = 17;
             // 
             // AddOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 506);
+            this.ClientSize = new System.Drawing.Size(1032, 560);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -713,5 +748,8 @@
         private TextBox txtContactName;
         private Button btnDelete;
         private Panel panel5;
+        private Button btnGiveOrder;
+        private TextBox txtSupplierMail;
+        private Label label17;
     }
 }

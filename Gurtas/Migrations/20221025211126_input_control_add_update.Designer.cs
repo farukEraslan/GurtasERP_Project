@@ -4,6 +4,7 @@ using Gurtas.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gurtas.Migrations
 {
     [DbContext(typeof(GurtasContext))]
-    partial class GurtasContextModelSnapshot : ModelSnapshot
+    [Migration("20221025211126_input_control_add_update")]
+    partial class input_control_add_update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,23 +81,6 @@ namespace Gurtas.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            CustomerId = 1,
-                            Address = "Ostre Kullerod 3 | 3241 Snaderfjord | Norway",
-                            City = "Sandefjord",
-                            ContactTitle = "Roger Hagen",
-                            Country = "Norway",
-                            CustomerName = "Amiblu",
-                            Email = "roger.hagen@amiblu.com",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 378, DateTimeKind.Local).AddTicks(6179),
-                            Phone = "+47 452 26 710",
-                            PostalCode = "3241",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 378, DateTimeKind.Local).AddTicks(6170),
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("Gurtas.DAL.Entities.MeasureTools", b =>
@@ -171,9 +156,9 @@ namespace Gurtas.Migrations
                             Manufacturer = "Mitutoyo",
                             MeasureRange = "0-150",
                             Model = "",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 377, DateTimeKind.Local).AddTicks(5349),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 605, DateTimeKind.Local).AddTicks(2147),
                             NextCalibrationDate = new DateTime(2023, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 377, DateTimeKind.Local).AddTicks(5341),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 605, DateTimeKind.Local).AddTicks(2145),
                             SerialNumber = "B22084436",
                             ToolName = "Kumpas",
                             Type = "Dijital",
@@ -313,107 +298,6 @@ namespace Gurtas.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Projects");
-
-                    b.HasData(
-                        new
-                        {
-                            ProjectId = 1,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2283),
-                            ProjectName = "545-AR Catalyst System",
-                            ProjectNumber = "PO 77684-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2274),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2293),
-                            ProjectName = "545-AR Machine Saw Carriage and Feeder",
-                            ProjectNumber = "PO 77704-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2291),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 3,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2299),
-                            ProjectName = "545-AR Chopper 500 - 1500",
-                            ProjectNumber = "PO 77736-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2297),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 4,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2304),
-                            ProjectName = "545-AR Steel Band Tensioner",
-                            ProjectNumber = "PO 77793-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2302),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 5,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2474),
-                            ProjectName = "545-AR Sandbox 100",
-                            ProjectNumber = "PO 77810-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2471),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 6,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2480),
-                            ProjectName = "545-AR Platform Spindle Lifting",
-                            ProjectNumber = "PO 77912-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2478),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 7,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2485),
-                            ProjectName = "545-AR Resin Mix Small Parts",
-                            ProjectNumber = "PO 77923-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2483),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 8,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2490),
-                            ProjectName = "545-AR Netting Tensioner E1 Upgrade",
-                            ProjectNumber = "PO 77924-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2488),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 9,
-                            CustomerId = 1,
-                            IsFinished = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2495),
-                            ProjectName = "545-AR Gear Drive System",
-                            ProjectNumber = "PO 77938-1",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 380, DateTimeKind.Local).AddTicks(2493),
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("Gurtas.DAL.Entities.Suppliers", b =>
@@ -484,9 +368,9 @@ namespace Gurtas.Migrations
                             ContactName = "Faruk Eraslan",
                             Goods = "Makine İmalatı",
                             IsApproved = true,
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 379, DateTimeKind.Local).AddTicks(2714),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 605, DateTimeKind.Local).AddTicks(7891),
                             Phone = "0262 123 45 67",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 379, DateTimeKind.Local).AddTicks(2706),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 605, DateTimeKind.Local).AddTicks(7885),
                             TaxOfficeAndNumber = "1234567890",
                             UserId = 1
                         });
@@ -540,10 +424,10 @@ namespace Gurtas.Migrations
                         {
                             UserId = 1,
                             Gender = "Erkek",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7095),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9866),
                             Name = "Faruk",
                             Password = "qu4lity",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7072),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9854),
                             Surname = "Eraslan",
                             Username = "farukeraslan"
                         },
@@ -551,10 +435,10 @@ namespace Gurtas.Migrations
                         {
                             UserId = 2,
                             Gender = "Erkek",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7104),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9868),
                             Name = "Aykut",
                             Password = "own3r",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7102),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9868),
                             Surname = "Özgür",
                             Username = "aykutozgur"
                         },
@@ -562,10 +446,10 @@ namespace Gurtas.Migrations
                         {
                             UserId = 3,
                             Gender = "Erkek",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7111),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9870),
                             Name = "Ali",
                             Password = "pr0duction",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7108),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9869),
                             Surname = "Yılmaz",
                             Username = "aliyilmaz"
                         },
@@ -573,10 +457,10 @@ namespace Gurtas.Migrations
                         {
                             UserId = 4,
                             Gender = "Erkek",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7116),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9872),
                             Name = "Cem",
                             Password = "acc0ntting",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7114),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9871),
                             Surname = "Gülpınar",
                             Username = "cemgulpinar"
                         },
@@ -584,10 +468,10 @@ namespace Gurtas.Migrations
                         {
                             UserId = 5,
                             Gender = "Erkek",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7121),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9873),
                             Name = "Orhan",
                             Password = "purch4sing",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7119),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9873),
                             Surname = "Özgür",
                             Username = "orhanozgur"
                         },
@@ -595,10 +479,10 @@ namespace Gurtas.Migrations
                         {
                             UserId = 6,
                             Gender = "Erkek",
-                            ModifiedDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7126),
+                            ModifiedDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9875),
                             Name = "Faruk",
                             Password = "log1stic",
-                            RecordDate = new DateTime(2022, 11, 10, 16, 14, 56, 376, DateTimeKind.Local).AddTicks(7125),
+                            RecordDate = new DateTime(2022, 10, 26, 0, 11, 25, 604, DateTimeKind.Local).AddTicks(9874),
                             Surname = "Kurtoğlu",
                             Username = "farukkurtoglu"
                         });

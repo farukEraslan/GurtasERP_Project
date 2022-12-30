@@ -4,9 +4,13 @@ using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace Gurtas.Helper
 {
@@ -159,6 +163,8 @@ namespace Gurtas.Helper
 				using (GurtasContext context = new GurtasContext())
 				{                    
                     var user = context.Users.FirstOrDefault(e => e.UserId == userId);
+                    bool check = false;
+                    //while (checked == true)
                     if (user.Password == password)
                     {
                         return true;
@@ -281,7 +287,6 @@ namespace Gurtas.Helper
                         order.PaymentTerm = paymentTerm;
                         order.Description = description;
                         order.IsActive = IsActive;
-                        order.RecordDate = DateTime.Now;
                         order.ModifiedDate = DateTime.Now;
                         order.UserId = userId;
                     }                   
@@ -314,6 +319,36 @@ namespace Gurtas.Helper
             {
                 MessageBox.Show(ex.Message);
                 throw;
+            }
+        }
+
+        public static void AddNewInputControlForm(int formId, string reportNo, DateTime reportDate, string supplier, string material, string billNo, DateTime billDate, string projectName, string decision, string quality, string time, string certificate, string price, string payment)
+        {
+            // GİRDİ KONTROL FORMU EKLE/GÜNCELLE
+        }
+
+        public static void Email(string htmlString, string supplierMail)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress("frk.eraslan@hotmail.com");
+                message.To.Add(new MailAddress(supplierMail));
+                message.Subject = "Gurtas ERP Sipariş Mail Test";
+                message.IsBodyHtml = false; //to make message body as html  
+                message.Body = htmlString;
+                smtp.Port = 587;
+                smtp.Host = "smtp-mail.outlook.com"; //for gmail host  
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("frk.eraslan@hotmail.com", "3r4sl4nf4r0k");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
